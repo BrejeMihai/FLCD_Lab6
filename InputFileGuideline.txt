@@ -1,0 +1,9 @@
+0  // the initial state
+1  // the number of final states
+3  // ^ space separated final states (in this case only one)
+5  // number of transitions
+0 0 a  // first node (first value) going to the second one (second value) through third value 
+0 0 b  // ^ same as above 
+0 1 a
+1 2 b
+2 3 b
