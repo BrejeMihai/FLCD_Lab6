@@ -3,12 +3,14 @@
 #include <vector>
 #include <string>
 #include <set>
+#include <fstream>
+#include <algorithm>
 
 class FiniteAutomaton
 {
 private:
     int initialState;
-    std::map<std::pair<int, char>, int> transitions;
+    std::multimap<std::pair<int, char>, int> transitions;
     std::vector<int> finalStates;
     std::set<char> alphabet;
 public:
@@ -20,11 +22,16 @@ public:
     void addFinalState(int finalState);
 
     std::set<char> getAlphabet();
-    std::map<std::pair<int, char>, int> getTransitions();
+    std::multimap<std::pair<int, char>, int> getTransitions();
     int getInitialState();
     std::vector<int> getFinalStates();
 
     std::string prettyPrintTransitions();
     std::string prettyPrintFinalStates();
     std::string prettyPrintAlphabet();
+    std::string prettyPrintVerifySequence(std::string path);
+
+    bool IsNonDeterministicSingle(int firstState, std::string::iterator pathIterator);
+    bool verifyIfSequenceAccepted(std::string pathToSequence);
+    
 };

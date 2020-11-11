@@ -1,0 +1,21 @@
+FAin = initialState , integer_const (* number of final states *) , finalStates , integer_const (* number of transitions *) , transition [{transition}];
+
+
+initialState = state , "\n";
+finalStates = state , " " , [{state}] , "\n";
+transition = state , " " , state , " " , alphabetValue , "\n";
+
+alphabetValue = letter | digit;
+state = digit;
+
+integer_const = nonzerodigit , [{ digit }];
+letter = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z";
+digit = "0" | "1" |...| "9";
+nonzero_digit = "1" | … | "9";
+
+
+(* per proposed ISO/IEC 14977 standard 
+   , - represents concatenation
+   [] - represents optionality
+   {} - represents repetition 
+   ; - represents termination *)

@@ -7,7 +7,7 @@
 #include <sstream>
 #include "FiniteAutomaton.h"
 
-#define USER_MENU "FiniteAutomaton program.\nWhat do you desire?\n1.Show initial state\n2.Show final states\n3.Show the alphabet\n4.Show transitions\n0.Exit\n>>>"
+#define USER_MENU "FiniteAutomaton program.\nWhat do you desire?\n1.Show initial state\n2.Show final states\n3.Show the alphabet\n4.Show transitions\n5.Verify sequence\n0.Exit\n>>>"
 
 void readFiniteAutomatonFromFile(FiniteAutomaton& automaton, std::string path)
 {
@@ -96,6 +96,9 @@ void TalkToUser(std::string path)
             break;
         case 4:
             fprintf_s(stdout, automaton.prettyPrintTransitions().c_str());
+            break;
+        case 5:
+            fprintf_s(stdout, automaton.prettyPrintVerifySequence(std::string("C:\\D\\UBB-932\\Sem1\\FLCD\\Lab06\\Lab4FiniteAutomata\\Lab4FiniteAutomata\\testSequence.txt")).c_str());
             break;
         default:
             fprintf_s(stdout, "Bad input. Try again!\n");
